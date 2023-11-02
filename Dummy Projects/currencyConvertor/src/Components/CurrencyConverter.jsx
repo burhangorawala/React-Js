@@ -59,8 +59,9 @@ function CurrencyConverter() {
   };
 
   return (
-    <div>
-      <h2>Currency Converter</h2>
+    <div className="bg-grey-100 p-4 rounded-lg">
+      <h2 className="text-2xl font-semibold mb-4">Currency Converter</h2>
+      <div className="flex space-x-4">
       <CurrencySelect
         label={"Source Currency"}
         options={Object.keys(exchangeRates)}
@@ -73,11 +74,16 @@ function CurrencyConverter() {
         value={targetCurrency}
         onChange={handleTargetCurrencyChange}
       />
-      <div>
-        <label>Amount:</label>
-        <input type="number" value={amount} onChange={handleAmountChange} />
       </div>
-      <button onClick={handleConvert}>Convert</button>
+      <div className="mb-4">
+        <label>Amount:</label>
+        <input type="number" value={amount} onChange={handleAmountChange} 
+          className="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:ring-blue-500"
+        />
+      </div>
+      <button onClick={handleConvert} 
+         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+      >Convert</button>
       <Result convertedAmount={convertedAmount} />
     </div>
   );
